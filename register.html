@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!-- 引用SUI的CSS-->
+    <link rel="stylesheet" href="lib/sui/css/sm.min.css">
+    <link rel="stylesheet" href="lib/sui/css/sm-extend.min.css">
+    <!-- 引用项目用的字体图标库-->
+    <link rel="stylesheet" href="font/iconfont.css"/>
+    <!--自己的css样式-->
+    <link rel="stylesheet" href="css/main.css"/>
+
+</head>
+<body>
+
+<div class="page-group">
+    <div class="page page-current register" id="register">
+        <!--顶部通栏  -->
+        <header class="bar bar-nav header">
+            <a class="pull-left iconfont icon-fanhui goback"></a>
+
+            <h1 class="login">注册</h1>
+        </header>
+
+        <!--表单-->
+        <form action="#">
+            <div class="content">
+                <div class="list-block all">
+                    <ul>
+                        <!--用户名-->
+                        <li>
+                            <div class="item-content common">
+                                <div class="item-inner">
+                                    <!--<div class="item-title label info">姓名</div>-->
+                                    <div class="item-input">
+                                        <input type="text" placeholder="请输入用户名（2~20位）" class="info" id="user"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <!--邮箱-->
+                        <li>
+                            <div class="item-content common">
+                                <div class="item-inner">
+                                    <div class="item-input">
+                                        <input type="email" placeholder="请输入常用邮箱" class="info" id="mail">
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <!--密码-->
+                        <li>
+                            <div class="item-content common">
+                                <div class="item-inner">
+                                    <div class="item-input">
+                                        <input type="password" placeholder="密码（6~20位）" class="info" id="password"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <!--确认密码-->
+                        <li>
+                            <div class="item-content common">
+                                <div class="item-inner">
+                                    <div class="item-input">
+                                        <input type="password" placeholder="确认密码" class="info" id="confirm"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!--<div class="row m_l50">-->
+                <div class="col-50 "><a href="#" class="login confirm-ok-cancel">注册</a></div>
+                <!--</div>-->
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<!--引入zepto核心组件-->
+<script type='text/javascript' src='lib/sui/js/zepto.min.js' charset='utf-8'></script>
+<!--引入zepto触摸事件组件-->
+<script type='text/javascript' src='lib/sui/js/touch.js' charset='utf-8'></script>
+<!--引入SUI的JS文件-->
+<script type='text/javascript' src='lib/sui/js/sm.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='lib/sui/js/sm-extend.min.js' charset='utf-8'></script>
+<!--SUI页面初始化-->
+
+<!--自己的js样式-->
+<script type='text/javascript' src='js/main.js' charset='utf-8'></script>
+
+<script>
+    $.init();
+</script>
+</body>
+</html>

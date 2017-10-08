@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!-- 引用SUI的CSS-->
+    <link rel="stylesheet" href="lib/sui/css/sm.min.css">
+    <link rel="stylesheet" href="lib/sui/css/sm-extend.min.css">
+    <!-- 引用项目用的字体图标库-->
+    <link rel="stylesheet" href="font/iconfont.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+
+
+</head>
+<body>
+<div class="page-group">
+    <div class="page page-current sort">
+        <!-- 标题栏 -->
+        <header class="bar bar-nav">
+            <a class="icon pull-left goback"><i class="iconfont icon-fanhui"></i></a>
+
+            <h1 class="title">粮油干货</h1>
+
+        </header>
+
+        <div class="content">
+            <div class="c_sort" id="product_list">
+                <!--<div class="list-block media-list list-first">
+                    <ul>
+                        <li>
+                            <a href="#" class="item-link item-content externals">
+                                <div class="item-media"><img src="images/sort-1.png" style='width: 4rem;'></div>
+                                <div class="item-inner">
+                                    <div class="item-title-row">
+                                        <div class="item-title">开心果自然开口</div>
+
+                                    </div>
+                                    <div class="item-subtitle">简单文字说明……</div>
+                                    <div class="item-text">总价：<span>&yen;16.0</span>
+
+                                        <div class="cart pull-right">
+                                            <button>购物车</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="list-block media-list">
+                    <ul>
+                        <li>
+                            <a href="#" class="item-link item-content external">
+                                <div class="item-media"><img src="images/sort-2.png" style='width: 4rem;'></div>
+                                <div class="item-inner">
+                                    <div class="item-title-row">
+                                        <div class="item-title">极品葵花籽</div>
+
+                                    </div>
+                                    <div class="item-subtitle">简单文字说明……</div>
+                                    <div class="item-text">总价：<span>&yen;29.0</span>
+
+                                        <div class="cart pull-right">
+                                            <button>购物车</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="list-block media-list">
+                    <ul>
+                        <li>
+                            <a href="#" class="item-link item-content external">
+                                <div class="item-media"><img src="images/sort-3.png" style='width: 4rem;'></div>
+                                <div class="item-inner">
+                                    <div class="item-title-row">
+                                        <div class="item-title">炒货坚果</div>
+
+                                    </div>
+                                    <div class="item-subtitle">简单文字说明……</div>
+                                    <div class="item-text">总价：<span>&yen;39.0</span>
+
+                                        <div class="cart pull-right">
+                                            <button>购物车</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="list-block media-list">
+                    <ul>
+                        <li>
+                            <a href="#" class="item-link item-content">
+                                <div class="item-media"><img src="images/sort-1.png" style='width: 4rem;'></div>
+                                <div class="item-inner">
+                                    <div class="item-title-row">
+                                        <div class="item-title">进口开心果</div>
+
+                                    </div>
+                                    <div class="item-subtitle">简单文字说明……</div>
+                                    <div class="item-text">总价：<span>&yen;59.0</span>
+
+                                        <div class="cart pull-right">
+                                            <button>购物车</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="list-block media-list">
+                    <ul>
+                        <li>
+                            <a href="#" class="item-link item-content external">
+                                <div class="item-media"><img src="images/sort-3.png" style='width: 4rem;'></div>
+                                <div class="item-inner">
+                                    <div class="item-title-row">
+                                        <div class="item-title">进口葵花籽</div>
+
+                                    </div>
+                                    <div class="item-subtitle">简单文字说明……</div>
+                                    <div class="item-text">总价：<span>&yen;88.0</span>
+
+                                        <div class="cart pull-right">
+                                            <button>购物车</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>-->
+            </div>
+        </div>
+    </div>
+</div>
+<!--引入zepto核心组件-->
+<script type='text/javascript' src='lib/sui/js/zepto.min.js' charset='utf-8'></script>
+<!--引入zepto触摸事件组件-->
+<script type='text/javascript' src='lib/sui/js/touch.js' charset='utf-8'></script>
+<!--引入SUI的JS文件-->
+<script type='text/javascript' src='lib/sui/js/sm.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='lib/sui/js/sm-extend.min.js' charset='utf-8'></script>
+
+<!--应用公共js库-->
+<script type='text/javascript' src='js/common.js' charset='utf-8'></script>
+
+<script src="js/swipe.js"></script>
+
+<!--SUI页面初始化-->
+<script>
+    $.init();
+    $.config = {router: false};
+    $(document).on("pageAnimationEnd", ".page", function () {
+        location.reload();
+    })
+</script>
+
+<script>
+
+    $(document).on("click", ".goback", function () {
+        $.router.back();
+    });
+
+    var allProducts = JSON.parse(localStorage.getItem("allProducts"));
+    if (allProducts != null) {
+        for (var i = 0; i < allProducts.length; i++) {
+            $('<div class="list-block media-list"><ul> <li> <a href="javascript:void(0)" class="item-link item-content external"> <div class="item-media"><img src="' + allProducts[i].proImg + '" style="width: 4rem;"></div> <div class="item-inner"> <div class="item-title-row"> <div class="item-title">' + allProducts[i].name + '</div> </div> <div class="item-subtitle">' + allProducts[i].info + '</div> <div class="item-text">总价：<span>&yen;' + allProducts[i].price.toFixed(1) + '</span> <div class="cart pull-right"> <button class="add-to-cart">加入购物车</button> </div> </div> </div> </a> </li> </ul> </div>').appendTo("#product_list");
+        }
+
+        $(".item-link").each(function (index, dom) {
+            dom.product = allProducts[index];
+        });
+
+        $(".add-to-cart").each(function (index, dom) {
+            dom.product = allProducts[index];
+        })
+
+        $(document).on('click', '.item-link', function (e) {
+            if (!$(e.target).hasClass('add-to-cart')) {
+                localStorage.setItem("product", JSON.stringify(this.product));
+                $.router.load("detail.html");
+            }
+        });
+
+        //将商品添加至购物车
+        $(document).on('click', '.add-to-cart', function () {
+            //判断当前是否已登录
+            var user = sessionStorage.getItem("user");
+            if (!user) {
+                $.toast("您尚未登录！");
+                setTimeout(function () {
+                    $.router.load("login.html");
+                }, 2000);
+            } else {
+                //获取当前商品
+                var currPro = this.product;
+                currPro.cartNum = 1;
+                //获取购物车中已存在的商品
+                var cartdata = JSON.parse(localStorage.getItem("cartdata"));
+                //判断购物车中是否有商品，如果没有则直接添加
+                if (!cartdata) {
+                    cartdata = [currPro];
+                } else {
+                    //如果购物车中已有商品，需要判断当前的商品是否已在购物车中
+                    var flag = false;
+                    for (var i = 0; i < cartdata.length; i++) {
+                        if (cartdata[i].name == currPro.name) {
+                            flag = true;
+                            break;
+                        }
+                    }
+                    if (flag) {
+                        $.toast("该商品已添加至购物车！");
+                        return false;
+                    } else {
+                        cartdata.push(currPro);
+                        $.toast("添加成功！");
+                    }
+                }
+                localStorage.setItem("cartdata", JSON.stringify(cartdata));
+            }
+        })
+    }
+</script>
+
+<!--<script>
+    //用于 详情页面 与评论页面
+    var data = [{
+        id: 0,
+        "title": "开心果好吃!",
+        price: 16.0,
+        imgId: 1,
+        count: 0,
+        message: {
+            standard: "100g",
+            place: "江苏南京",
+            code: "500303",
+        },
+        introduce: "开心果，纯天然无添加的开心果。具有润肠通便、疏肝理气、保护眼睛、温肾暖脾、调中益气。主治诸痢，去冷气，治腰冷，阴肾虚弱的",
+        comment: [{
+            name: "亮亮",
+            date: "2017年8月25日",
+            main: "就是好吃，大家快来买"
+        }, {
+            name: "亮亮1",
+            date: "2017年8月25日",
+            main: "好吃，快来买"
+        }, {
+            name: "亮亮2",
+            date: "2017年8月25日",
+            main: "不好吃，不要买"
+        }]
+
+    }, {
+        id: 1,
+        title: "葵花籽很棒!",
+        price: 29.0,
+        imgId: 2,
+        count: 0,
+        message: {
+            standard: "200g",
+            place: "浙江杭州",
+            code: "500304",
+        },
+        introduce: "葵花籽，即向日葵的果实，可供食用和油用。葵花籽富含不饱和脂肪酸、多种维生素和微量元素，其味道可口，是一种十分受欢迎的休闲零食和食用油源。",
+        comment: [{
+            name: "陈永强",
+            date: "2017年8月30日",
+            main: "非常好，很实惠。棒棒的"
+        }, {
+            name: "小红",
+            date: "2017年8月30日",
+            main: "一般般，但很实惠。"
+        }, {
+            name: "小赵",
+            date: "2017年8月30日",
+            main: "还是不错的。棒棒的"
+        }]
+    }, {
+        id: 2,
+        title: "坚果超好!",
+        price: 39.0,
+        imgId: 3,
+        count: 0,
+        message: {
+            standard: "300g",
+            place: "湖南长沙",
+            code: "500305",
+        },
+        introduce: "所含巴旦木仁，腰果仁,核桃仁,南瓜子仁,红枣干,枸杞干,青豆干,黑加仑，葡萄干营养丰富，保护肌肤 、有益心脏健康，帮助肠道健康。",
+        comment: [{
+            name: "杰王子",
+            date: "2017年8月31日",
+            main: "太好吃了，太好吃了，非常合口味"
+        }, {
+            name: "杰王子2",
+            date: "2017年8月31日",
+            main: "太太好吃了，太好吃了，非常不错"
+        }, {
+            name: "杰王子3",
+            date: "2017年8月31日",
+            main: "太难吃了，以后再也不买了"
+        }]
+    }, {
+        id: 3,
+        title: "进口口感好!",
+        price: 59.0,
+        imgId: 1,
+        count: 0,
+        message: {
+            standard: "700g",
+            place: "安徽合肥",
+            code: "500306",
+        },
+        introduce: "葵花籽，即向日葵的果实，可供食用和油用。葵花籽富含不饱和脂肪酸、多种维生素和微量元素，其味道可口，是一种十分受欢迎的休闲零食和食用油源。",
+        comment: [{
+            name: "小钱",
+            date: "2017年8月25日",
+            main: "就是好吃，大家快来买"
+        }, {
+            name: "小孙",
+            date: "2017年8月25日",
+            main: "好吃，快来买"
+        }, {
+            name: "小李",
+            date: "2017年8月25日",
+            main: "不好吃，不要买"
+        }]
+    }, {
+        id: 4,
+        title: "葵瓜子就是好！",
+        price: 88.0,
+        imgId: 2,
+        count: 0,
+        message: {
+            standard: "900g",
+            place: "江苏无锡",
+            code: "500307",
+        },
+        introduce: "所含巴旦木仁，腰果仁,核桃仁,南瓜子仁,红枣干,枸杞干,青豆干,黑加仑，葡萄干营养丰富，保护肌肤 、有益心脏健康，帮助肠道健康。",
+        comment: [{
+            name: "小周",
+            date: "2017年8月25日",
+            main: "就是好吃，大家快来买"
+        }, {
+            name: "小吴",
+            date: "2017年8月25日",
+            main: "好吃，快来买"
+        }, {
+            name: "小郑",
+            date: "2017年8月25日",
+            main: "不好吃，不要买"
+        }]
+    }];
+
+
+    /*sort页面的每项数据 绑定在按钮上 传给购物车的*/
+    var sort_data = [{
+        "id": 0,
+        "title": "开心果自然开口",
+        "price": "16.0",
+        "imgId": "1"
+    }, {
+        "id": 1,
+        "title": "极品葵花籽",
+        "price": "29.0",
+        "imgId": "2"
+    }, {
+        "id": 2,
+        "title": "炒货坚果",
+        "price": "39.0",
+        "imgId": "3"
+    }, {
+        "id": 3,
+        "title": "进口开心果",
+        "price": "59.0",
+        "imgId": "1"
+    }, {
+        "id": 4,
+        "title": "进口葵花籽",
+        "price": "88.0",
+        "imgId": "2"
+    }]
+
+
+    var storage = window.localStorage;
+    /*
+     $(".list-block").each(function (index, element) {
+     //绑定详情页面与评论页面的数据
+     // console.log(data[index]);
+
+     $(element).attr("imgData", JSON.stringify(data[index]));
+
+     });*/
+    /* 绑定购物车页面数据*/
+    var carts = document.querySelectorAll(".list-block .cart");
+    for (var i = 0; i < carts.length; i++) {
+        carts[i].setAttribute("cart", JSON.stringify(sort_data[i]))
+    }
+
+    var obj;
+
+    $(".list-block").click(function () {
+        index = $(this).index();
+        console.log(data[index]);
+        storage.obj = JSON.stringify(data[index]);
+
+        $.router.load("detail.html");
+        return false;
+    });
+    itcast.iScroll({
+        swipeDom: document.querySelector('.content'), /*父容器对象*/
+        swipeType: 'y', /*滑动的方向*/
+        swipeDistance: 100/*缓冲的距离*/
+    });
+
+
+    /*购物车绑定事件*/
+    var cart_data_array = [];
+    var carts = document.querySelectorAll(".content .c_sort .cart");
+    //console.log(carts.length);
+    for (var i = 0; i < carts.length; i++) {
+        carts[i].index = i;
+        carts[i].onclick = function (event) {
+            $.toast("加入成功！");
+            cart_data_array.push(JSON.parse(this.getAttribute("cart")));
+            storage.cart_data = JSON.stringify(cart_data_array);
+            // $.router.load("cart.html")
+            event.preventDefault();
+            event.stopPropagation();
+        }
+    }
+
+    $(document).on("click", ".goback", function () {
+        $.router.back();
+    });
+
+</script>-->
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1"/>
+    <title>search</title>
+    <link rel="shortcut icon" href="">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <!-- 引用SUI的CSS-->
+    <link rel="stylesheet" href="./lib/sui/css/sm.min.css">
+    <link rel="stylesheet" href="./lib/sui/css/sm-extend.min.css">
+    <!-- 引用项目用的字体图标库-->
+    <link rel="stylesheet" href="./font/iconfont.css"/>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+<div class="page-group">
+    <div class="page page-current search_result" id="search_result">
+        <header class="bar bar-nav dahai-header dahai-bar">
+            <a class="icon iconfont icon-fanhui pull-left dahai-icon goback"></a>
+
+            <h1 class="title dahai-icon">结果</h1>
+        </header>
+
+        <div class="content" id="result_list">
+        </div>
+
+
+    </div>
+</div>
+<!--引入zepto核心组件-->
+<script type='text/javascript' src='./lib/sui/js/zepto.min.js' charset='utf-8'></script>
+<!--引入zepto触摸事件组件-->
+<script type='text/javascript' src='./lib/sui/js/touch.js' charset='utf-8'></script>
+<!--引入SUI的JS文件-->
+<script type='text/javascript' src='./lib/sui/js/sm.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='./lib/sui/js/sm-extend.min.js' charset='utf-8'></script>
+<!--SUI页面初始化-->
+<script src="js/main.js"></script>
+<script>
+    $.init();
+</script>
+</body>
+</html>

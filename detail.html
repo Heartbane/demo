@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-CN">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!-- 引用SUI的CSS-->
+    <link rel="stylesheet" href="lib/sui/css/sm.min.css">
+    <link rel="stylesheet" href="lib/sui/css/sm-extend.min.css">
+    <!-- 引用项目用的字体图标库-->
+    <link rel="stylesheet" href="font/iconfont.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+</head>
+<body>
+
+<div class="page-group">
+    <div class="page page-current" id="detail">
+        <!-- 标题栏 -->
+        <header class="bar bar-nav details">
+            <a class="icon pull-left back icon_back">
+                <i class="iconfont icon-fanhui"></i>
+            </a>
+
+            <h1 class="title">详情</h1>
+            <a class="icon pull-right" href="javascript:;">
+                <i class="iconfont icon-gengduo" id="many"></i>
+            </a>
+        </header>
+
+        <div class="content details">
+            <div class="img">
+
+            </div>
+            <div class="c_detail">
+                <div class="c_title"></div>
+                <div class="c_price">&yen;<span id="p_price"></span></div>
+            </div>
+            <div class="shop_message">
+                <a class="icon pull-left">
+                    <i class="iconfont icon-tuxiang"></i>
+                </a>
+                <span>商品信息</span>
+
+                <div class="message_info">
+                    <p>规格：<span id="p_spec"></span></p>
+
+                    <p>产地：<span id="p_from"></span></p>
+
+                    <p>商品编码：<span id="p_proNum"></span></p>
+
+                    <p>商品介绍：<span id="p_info"></span></p>
+                </div>
+            </div>
+
+        </div>
+        <nav class="bar bar-tab">
+            <div id="option">
+                  <span class="o_span">
+                      <a class="icon pull-right" id="reduce">
+                          <i class="iconfont icon-jianhao"></i>
+                      </a>
+                  </span>
+                <span id="input">1</span>
+                <span class="o_span">
+                    <a class="icon pull-right" id="add">
+                        <i class="iconfont icon-jiahao"></i>
+                    </a>
+                </span>
+
+                <div class="detail">
+                    <button class="to-cart">至购物车</button>
+                </div>
+            </div>
+
+        </nav>
+        <div class="mask">
+            <div class="mask_box">
+                <div class="mask_content">
+
+                    <div class="text_1">
+                        <i class="iconfont icon-pinglun"> 评论</i>
+                    </div>
+
+                    <div class="text_2">
+                        <i class="iconfont icon-shoucang"> 收藏</i>
+                    </div>
+
+                    <div class="text_3">
+                        <i class="iconfont icon-fenxiang"> 分享</i>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<!--引入zepto核心组件-->
+<script type='text/javascript' src='lib/sui/js/zepto.min.js' charset='utf-8'></script>
+<!--引入zepto触摸事件组件-->
+<script type='text/javascript' src='lib/sui/js/touch.js' charset='utf-8'></script>
+<!--引入SUI的JS文件-->
+<script type='text/javascript' src='lib/sui/js/sm.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='lib/sui/js/sm-extend.min.js' charset='utf-8'></script>
+<!--SUI页面初始化-->
+
+<script>
+    $(document).on("pageAnimationEnd", ".page", function () {
+        location.reload();
+    })
+</script>
+<script>
+    var product = JSON.parse(localStorage.getItem("product"));
+    //获取当前的产品信息
+    if (product != null) {
+        $("#p_price").text(product.price.toFixed(1));
+        $("#p_spec").text(product.spec);
+        $("#p_from").text(product.from);
+        $("#p_proNum").text(product.proNum);
+        $("#p_info").text(product.info);
+        $("#detail .details.content .img").css("background", "url(" + product.proImg + ") no-repeat center/cover")
+    }
+
+    var commentArr = [
+        {
+            comment: [{
+                name: "亮亮",
+                date: "2017年8月25日",
+                main: "就是好吃，大家快来买"
+            }, {
+                name: "亮亮1",
+                date: "2017年8月25日",
+                main: "好吃，快来买"
+            }, {
+                name: "亮亮2",
+                date: "2017年8月25日",
+                main: "不好吃，不要买"
+            }]
+        },
+        {
+            comment: [{
+                name: "陈永强",
+                date: "2017年8月30日",
+                main: "非常好，很实惠。棒棒的"
+            }, {
+                name: "小红",
+                date: "2017年8月30日",
+                main: "一般般，但很实惠。"
+            }, {
+                name: "小赵",
+                date: "2017年8月30日",
+                main: "还是不错的。棒棒的"
+            }]
+        },
+        {
+            comment: [{
+                name: "杰王子",
+                date: "2017年8月31日",
+                main: "太好吃了，太好吃了，非常合口味"
+            }, {
+                name: "杰王子2",
+                date: "2017年8月31日",
+                main: "太太好吃了，太好吃了，非常不错"
+            }, {
+                name: "杰王子3",
+                date: "2017年8月31日",
+                main: "太难吃了，以后再也不买了"
+            }]
+        },
+        {
+            comment: [{
+                name: "小钱",
+                date: "2017年8月25日",
+                main: "就是好吃，大家快来买"
+            }, {
+                name: "小孙",
+                date: "2017年8月25日",
+                main: "好吃，快来买"
+            }, {
+                name: "小李",
+                date: "2017年8月25日",
+                main: "不好吃，不要买"
+            }]
+        },
+        {
+            comment: [{
+                name: "小周",
+                date: "2017年8月25日",
+                main: "就是好吃，大家快来买"
+            }, {
+                name: "小吴",
+                date: "2017年8月25日",
+                main: "好吃，快来买"
+            }, {
+                name: "小郑",
+                date: "2017年8月25日",
+                main: "不好吃，不要买"
+            }]
+        },
+        {
+            comment: [{
+                name: "杰王子",
+                date: "2017年8月31日",
+                main: "太好吃了，太好吃了，非常合口味"
+            }, {
+                name: "杰王子2",
+                date: "2017年8月31日",
+                main: "太太好吃了，太好吃了，非常不错"
+            }, {
+                name: "杰王子3",
+                date: "2017年8月31日",
+                main: "太难吃了，以后再也不买了"
+            }]
+        },
+        {
+            comment: [{
+                name: "陈永强",
+                date: "2017年8月30日",
+                main: "非常好，很实惠。棒棒的"
+            }, {
+                name: "小红",
+                date: "2017年8月30日",
+                main: "一般般，但很实惠。"
+            }, {
+                name: "小赵",
+                date: "2017年8月30日",
+                main: "还是不错的。棒棒的"
+            }]
+        },
+        {
+            comment: [{
+                name: "小周",
+                date: "2017年8月25日",
+                main: "就是好吃，大家快来买"
+            }, {
+                name: "小吴",
+                date: "2017年8月25日",
+                main: "好吃，快来买"
+            }, {
+                name: "小郑",
+                date: "2017年8月25日",
+                main: "不好吃，不要买"
+            }]
+        },
+    ];
+
+    var allProducts = JSON.parse(localStorage.getItem("allProducts"));
+    if (allProducts != null) {
+        for (var i = 0; i < allProducts.length; i++) {
+            if (allProducts[i].name == product.name) {
+                product.comment = commentArr[i];
+                break;
+            }
+        }
+    }
+
+    localStorage.setItem("product", JSON.stringify(product));
+
+    //点击更多按钮弹出模态框
+    $(document).on("click", "#many", function () {
+        $(".page-group #detail .mask").css({"display": "block"});
+    });
+
+    //点击评论按钮进入评论页
+    $(document).on("click", ".text_1", function () {
+        $.router.load("comment.html");
+    });
+
+    //点击模态框非功能性处隐藏模态框
+    $(document).on("click", function (e) {
+        var c = $(e.target).attr("class");
+        if (c == "mask") {
+            $(".page-group #detail .mask").css({"display": "none"});
+        }
+    });
+
+    $(document).on("click", "#add", function () {
+        var num = parseInt($("#input").text());
+        num++;
+        $("#input").text(num);
+    });
+
+    $(document).on("click", "#reduce", function () {
+        var num = parseInt($("#input").text());
+        if (num > 1) {
+            num--;
+            $("#input").text(num);
+        }
+    });
+
+    $(document).on("click", ".to-cart", function () {
+        //判断当前是否已登录
+        var user = sessionStorage.getItem("user");
+        if (!user) {
+            $.toast("您尚未登录！");
+            setTimeout(function () {
+                $.router.load("login.html");
+            }, 2000);
+        } else {
+            //获取当前商品
+            var currPro = product;
+            var num = parseInt($("#input").text());
+            currPro.cartNum = num;
+            //获取购物车中已存在的商品
+            var cartdata = JSON.parse(localStorage.getItem("cartdata"));
+            //判断购物车中是否有商品，如果没有则直接添加
+            if (!cartdata) {
+                cartdata = [currPro];
+            } else {
+                //如果购物车中已有商品，需要判断当前的商品是否已在购物车中
+                var flag = false;
+                for (var i = 0; i < cartdata.length; i++) {
+                    if (cartdata[i].name == currPro.name) {
+                        flag = true;
+                        break;
+                    }
+                }
+                if (flag) {
+                    $.toast("该商品已添加至购物车！");
+                    return false;
+                } else {
+                    cartdata.push(currPro);
+                }
+            }
+            localStorage.setItem("cartdata", JSON.stringify(cartdata));
+            $.router.load("cart.html");
+        }
+    })
+
+</script>
+<!--<script>
+    var t = $("#input").html();
+    $("#reduce").click(function () {
+
+        t&#45;&#45;;
+        if (t < 0) {
+            t = 0;
+        }
+        $("#input").html(t);
+    });
+    $("#add").click(function () {
+        t++;
+        $("#input").html(t);
+    });
+
+    $("#many").click(function () {
+
+        $(".page-group #detail .mask").css({"display": "block"});
+
+    });
+    $(".mask").click(function () {
+        $(this).css({"display": "none"});
+    });
+    $(".text_1").click(function () {
+        $.router.load("comment.html");
+    });
+
+    /* 动态添加数据*/
+    var storage = window.localStorage;
+    var obj = JSON.parse(storage.getItem("obj"));
+
+
+    $(".c_detail .c_title").text(obj.title);
+    $(".c_detail .c_price span").text(obj.price.toFixed(1));
+    $(".message_info p:nth-child(1) span").text(obj.message.standard);
+
+    $(".message_info p:nth-child(2) span").text(obj.message.place);
+    $(".message_info p:nth-child(3) span").text(obj.message.code);
+    $(".message_info p:nth-child(4) span").text(obj.introduce);
+
+    //点击购物车
+    $("nav.bar .detail").click(function () {
+        var count = $("#input").text();
+        obj.count = count;
+        storage.obj = JSON.stringify(obj);
+        $.router.load("cart.html");
+    });
+
+
+</script>-->
+
+<script>
+    $.init();
+</script>
+</body>
+</html>

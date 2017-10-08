@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!-- 引用SUI的CSS-->
+    <link rel="stylesheet" href="lib/sui/css/sm.min.css">
+    <link rel="stylesheet" href="lib/sui/css/sm-extend.min.css">
+    <!-- 引用项目用的字体图标库-->
+    <link rel="stylesheet" href="font/iconfont.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+
+</head>
+<body>
+<div class="page-group common-page-group">
+    <!-- 单个page ,第一个.page默认被展示-->
+    <div class="page common-page setting-page">
+        <!-- 标题栏 -->
+        <header class="bar bar-nav common-bar">
+            <a class="icon pull-left open-panel goback">
+                <i class="iconfont icon-fanhui icon-fanhui-size common-icon"></i>
+            </a>
+
+            <h1 class="title">设置</h1>
+        </header>
+        <div class="content setting-content">
+            <div class="list-block">
+                <ul>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media"><i class="icon icon-form-toggle"></i></div>
+                            <div class="item-inner">
+                                <div class="item-title label">推送通知</div>
+                                <div class="item-input">
+                                    <label class="label-switch">
+                                        <input type="checkbox">
+
+                                        <div class="checkbox"></div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- Text inputs -->
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media"><i class="icon icon-form-name"></i></div>
+                            <div class="item-inner">
+                                <div class="item-title label">清理缓存</div>
+                                <span class="icon icon-right"></span>
+
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media"><i class="icon icon-form-email"></i></div>
+                            <div class="item-inner">
+                                <div class="item-title label">意见反馈</div>
+                                <span class="icon icon-right"></span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media"><i class="icon icon-form-password"></i></div>
+                            <div class="item-inner">
+                                <div class="item-title label">一键更新</div>
+                                <span class="icon icon-right"></span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media"><i class="icon icon-form-gender"></i></div>
+                            <div class="item-inner">
+                                <div class="item-title label">关于</div>
+                                <span class="icon icon-right"></span>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="setting-loginout">
+                    <button id="logout_btn">退出登录</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--引入zepto核心组件-->
+<script type='text/javascript' src='lib/sui/js/zepto.min.js' charset='utf-8'></script>
+<!--引入zepto触摸事件组件-->
+<script type='text/javascript' src='lib/sui/js/touch.js' charset='utf-8'></script>
+<!--引入SUI的JS文件-->
+<script type='text/javascript' src='lib/sui/js/sm.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='lib/sui/js/sm-extend.min.js' charset='utf-8'></script>
+<!--SUI页面初始化-->
+<script src="js/common.js"></script>
+<script src="js/allpage.js"></script>
+<script src="js/swipe.js"></script>
+<script src="js/main.js"></script>
+<script>
+    //    $.init();
+</script>
+</body>
+</html>

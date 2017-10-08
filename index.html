@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>首页</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" href="lib/sui/css/sm.min.css">
+    <link rel="stylesheet" href="lib/sui/css/sm-extend.min.css">
+    <link rel="stylesheet" href="font/iconfont.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+</head>
+<body>
+<div class="page-group index-page-group">
+    <!-- 首页index start-->
+    <div class="page page-current index-page" id="index">
+        <!-- 你的html代码 -->
+        <!-- 首页头部start-->
+        <header class="bar bar-nav index-bar">
+            <a class="icon pull-left to-category"><i class="iconfont icon-12"></i></a>
+            <a class="icon pull-right to-selfcenter"><i class="iconfont icon-yonghu"></i></a>
+
+            <h1 class="title">诚创纵横食品</h1>
+        </header>
+        <!-- 首页头部end-->
+
+        <!-- 首页内容start-->
+        <div class="content">
+            <!-- tab栏-->
+            <div class="buttons-tab fixed-tab index-buttons-tab" data-offset="44">
+                <a href="#tab1" class="tab-link active button">最新上架</a>
+                <a href="#tab2" class="tab-link button">最高人气</a>
+                <a href="#tab3" class="tab-link button">限时折扣</a>
+            </div>
+            <!-- 轮播图-->
+            <div class="swiper-container index-swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <a href="javascirpt:void(0);">
+                            <img src="images/index/banner_01.png" alt=""/>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="javascirpt:void(0);">
+                            <img src="images/index/banner_02.png" alt=""/>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="javascirpt:void(0);">
+                            <img src="images/index/banner_03.png" alt=""/>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="javascirpt:void(0);">
+                            <img src="images/index/banner_04.png" alt=""/>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="javascirpt:void(0);">
+                            <img src="images/index/banner_05.png" alt=""/>
+                        </a>
+                    </div>
+                </div>
+                <div class="swiper-pagination index-swiper-pagination"></div>
+            </div>
+            <!-- tab栏切换相应的内容-->
+            <div class="tabs">
+                <!-- tab1的内容-->
+                <div id="tab1" class="tab active">
+                    <div class="content-block">
+                        <div class="content-block-title">
+                            最新上架
+                        </div>
+                        <div class="product-box">
+                            <ul class="product-box-items" id="index_tab1_items">
+                                <!-- 这里动态获取数据用JS添加li-->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- tab2的内容-->
+                <div id="tab2" class="tab">
+                    <div class="content-block">
+                        <div class="content-block-title">
+                            最高人气
+                        </div>
+                        <div class="product-box">
+                            <ul class="product-box-items" id="index_tab2_items">
+                                <!--这里动态获取数据-->
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- tab3的内容-->
+                <div id="tab3" class="tab">
+                    <div class="content-block">
+                        <div class="content-block-title">
+                            限时折扣
+                        </div>
+                        <div class="product-box">
+                            <ul class="product-box-items" id="index_tab3_items">
+                                <!--这里动态获取数据-->
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- 首页内容end-->
+    </div>
+    <!-- 首页index end-->
+
+    <!-- 分类category start-->
+    <div class="page category-page" id="category">
+        <!-- 分类header start-->
+        <header class="bar bar-nav index-bar">
+            <a class="icon pull-left to-category"><i class="iconfont icon-12"></i></a>
+            <a class="icon pull-right to-selfcenter"><i class="iconfont icon-yonghu"></i></a>
+
+            <h1 class="title">分类</h1>
+        </header>
+        <!-- 分类header end-->
+        <div class="content">
+            <ul class="category-list">
+                <li>
+                    <a href="javascript:;" class="tosort">
+                        <span class="item-text">酒水</span>
+                        <span class="icon icon-right"></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;" class="tosort">
+                        <span class="item-text">饮料</span>
+                        <span class="icon icon-right"></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;" class="tosort">
+                        <span class="item-text">茶叶</span>
+                        <span class="icon icon-right"></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;" class="tosort">
+                        <span class="item-text">进口食品</span>
+                        <span class="icon icon-right"></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;" class="tosort">
+                        <span class="item-text">粮油干货</span>
+                        <span class="icon icon-right"></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- 分类category end-->
+
+    <div class="page search" id="search_page">
+        <header class="bar bar-nav dahai-header dahai-bar">
+            <a class="icon iconfont icon-12 pull-left dahai-icon to-category"></a>
+            <a class="icon iconfont icon-yonghu pull-right dahai-icon to-selfcenter"></a>
+
+            <h1 class="title dahai-icon">搜索</h1>
+        </header>
+
+        <div class="searchbar row dahai-searchbar">
+            <div class="col-20 dahai-dj">
+                <span id="cate_name">分类</span>
+                <span class="iconfont icon-f11"></span>
+                <ul class="xiala-box">
+                    <li class="gosearch">酒水</li>
+                    <li class="gosearch">杂粮</li>
+                    <li class="gosearch">香烟</li>
+                    <li class="gosearch">小吃</li>
+                </ul>
+            </div>
+            <div class="search-input col-60" id="dahai-abc">
+                <label class="icon iconfont icon-sousuo" for="search"></label>
+                <input type="search" placeholder='干果' id="search"/>
+            </div>
+            <a class="button button-fill button-primary col-20" id="gosearch">搜索</a>
+        </div>
+
+        <div class="list-block dahai-block">
+            <ul>
+                <li class="item-content item-link godetails">
+                    <div class="item-media"><i class="icon icon-f7"></i></div>
+                    <div class="item-inner dahai-inner">
+                        <div class="item-title dahai-itemtitle">坚果</div>
+                    </div>
+                </li>
+                <li class="item-content item-link godetails">
+                    <div class="item-media"><i class="icon icon-f7"></i></div>
+                    <div class="item-inner dahai-inner">
+                        <div class="item-title dahai-itemtitle">零食</div>
+                    </div>
+                </li>
+                <li class="item-content item-link godetails">
+                    <div class="item-media"><i class="icon icon-f7"></i></div>
+                    <div class="item-inner dahai-inner">
+                        <div class="item-title dahai-itemtitle">干货</div>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="panel-overlay index-panel-overlay"></div>
+
+    <!-- 左侧边栏start-->
+    <div class="panel panel-left panel-reveal index-left-panel" id='panel-left-demo'>
+        <div class="content-block">
+            <div class="content-block-title">
+                诚创纵横食品
+            </div>
+            <ul class="menu-list">
+                <li>
+                    <a href="#index" class="link-index">
+                        <div class="left-panel-icon">
+                            <i class="iconfont icon-shouye"></i>
+                        </div>
+                        <span>首页</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#category" class="link-category">
+                        <div class="left-panel-icon">
+                            <i class="iconfont icon-fenlei"></i>
+                        </div>
+                        <span>分类</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#search_page">
+                        <div class="left-panel-icon">
+                            <i class="iconfont icon-sousuo1"></i>
+                        </div>
+                        <span>搜索</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="cart.html">
+                        <div class="left-panel-icon">
+                            <i class="iconfont icon-gouwuche"></i>
+                        </div>
+                        <span>购物车</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="information.html">
+                        <div class="left-panel-icon">
+                            <i class="iconfont icon-xiaoxiyidu"></i>
+                        </div>
+                        <span>消息</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- 左侧边栏end-->
+
+    <!-- 右侧边栏start-->
+    <div class="panel panel-right panel-reveal index-right-panel" id='panel-right-demo'>
+        <div class="content-block">
+            <div class="head">
+                <a href="javascirpt:;" class="user-avatar">
+                    <img src="images/index/avatar.png" alt=""/>
+                </a>
+                <span class="user-name" id="user_name">未登录</span>
+                <a href="login.html" class="button login-btn" id="login_btn">登录</a>
+            </div>
+            <div class="options" id="options">
+                <ul class="option-list">
+                    <li>
+                        <a href="collect.html">
+                            <i class="iconfont icon-shoucang1"></i>
+                        </a>
+                        <span>收藏</span>
+                    </li>
+                    <li>
+                        <a href="person-info.html">
+                            <i class="iconfont icon-shuangren"></i>
+                        </a>
+                        <span>个人中心</span>
+                    </li>
+                    <li>
+                        <a href="javascirpt:;">
+                            <i class="iconfont icon-shouji"></i>
+                        </a>
+                        <span>一键拨打</span>
+                    </li>
+                    <li>
+                        <a href="setting.html">
+                            <i class="iconfont icon-gongju"></i>
+                        </a>
+                        <span>设置</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="copyright-text">
+                <p>诚创纵横淘宝店 UI APP 模板 出品 </p>
+
+                <p>www.taobao.com</p>
+            </div>
+        </div>
+    </div>
+    <!-- 右侧边栏end-->
+
+</div>
+<script type='text/javascript' src='lib/sui/js/zepto.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='lib/sui/js/touch.js' charset='utf-8'></script>
+
+<script type='text/javascript' src='lib/sui/js/sm.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='lib/sui/js/sm-extend.min.js' charset='utf-8'></script>
+<script src="js/data.js"></script>
+<!--swiper自定义JS-->
+<script src="js/main.js"></script>
+<script>
+    $.init();
+</script>
+</body>
+</html>

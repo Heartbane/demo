@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!-- 引用SUI的CSS-->
+    <link rel="stylesheet" href="lib/sui/css/sm.min.css">
+    <link rel="stylesheet" href="lib/sui/css/sm-extend.min.css">
+    <!-- 引用项目用的字体图标库-->
+    <link rel="stylesheet" href="font/iconfont.css"/>
+    <!--自己的css样式-->
+    <link rel="stylesheet" href="css/main.css"/>
+
+</head>
+<body>
+<div class="page-group" id="log_page">
+    <div class="page page-current login" id="login">
+        <!--顶部通栏  -->
+        <header class="bar  header">
+            <a class="pull-left iconfont icon-fanhui goback"></a>
+            <a class="pull-right register" href="register.html">注册</a>
+
+            <h1 class="login">登录</h1>
+        </header>
+        <!--表单-->
+        <form action="#">
+            <div class="content">
+                <div class="list-block all">
+                    <ul>
+                        <!--姓名-->
+                        <li>
+                            <div class="item-content common">
+                                <div class="item-inner">
+                                    <div class="item-input">
+                                        <input type="text" placeholder="用户名" id="user" class="info"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <!--密码-->
+                        <li>
+                            <div class="item-content common">
+                                <div class="item-inner">
+                                    <div class="item-input">
+                                        <input type="password" placeholder="密码" id="code" class="info"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!--加入忘记密码-->
+                <div class="forget">
+                    <a href="forget.html">忘记密码？</a>
+                </div>
+                <!--登录按钮-->
+                <div class="col-50 "><a href="#" class="login log" id="loginBtn">登录</a></div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!--引入zepto核心组件-->
+<script type='text/javascript' src='lib/sui/js/zepto.min.js' charset='utf-8'></script>
+<!--引入zepto触摸事件组件-->
+<script type='text/javascript' src='lib/sui/js/touch.js' charset='utf-8'></script>
+<!--引入SUI的JS文件-->
+<script type='text/javascript' src='lib/sui/js/sm.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='lib/sui/js/sm-extend.min.js' charset='utf-8'></script>
+<!--引用自己的Js文件-->
+<script type='text/javascript' src='js/data.js' charset='utf-8'></script>
+<script type='text/javascript' src='js/main.js' charset='utf-8'></script>
+
+<!--SUI页面初始化-->
+<script>
+    $.init();
+</script>
+</body>
+</html>

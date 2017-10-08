@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!-- 引用SUI的CSS-->
+    <link rel="stylesheet" href="lib/sui/css/sm.min.css">
+    <link rel="stylesheet" href="lib/sui/css/sm-extend.min.css">
+    <!-- 引用项目用的字体图标库-->
+    <link rel="stylesheet" href="font/iconfont.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+</head>
+<body>
+<div class="page-group">
+    <div class="page page-current">
+        <!-- 标题栏 -->
+        <header class="bar bar-nav comment">
+            <a class="icon pull-left back">
+                <i class="iconfont icon-fanhui"></i>
+            </a>
+
+            <h1 class="title">商品评论</h1>
+        </header>
+
+        <div class="content comment" id="comment_list">
+
+        </div>
+    </div>
+</div>
+<!--引入zepto核心组件-->
+<script type='text/javascript' src='lib/sui/js/zepto.min.js' charset='utf-8'></script>
+<!--引入zepto触摸事件组件-->
+<script type='text/javascript' src='lib/sui/js/touch.js' charset='utf-8'></script>
+<!--引入SUI的JS文件-->
+<script type='text/javascript' src='lib/sui/js/sm.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='lib/sui/js/sm-extend.min.js' charset='utf-8'></script>
+<!--SUI页面初始化-->
+
+<!-- 动态数据加载-->
+<!--<script>
+    var storage = window.localStorage;
+    var obj = JSON.parse(storage.getItem("obj"));
+    var arr = [];
+    for (var i = 0; i < obj.comment.length; i++) {
+        //console.log(obj.comment[i]);
+        var str = '<div class="message">'
+                + '        <div class="m_title">'
+                + '           <div class="name pull-left" >'
+                + obj.comment[i].name + '  </div>'
+                + '           <div class="date pull-right">'
+                + obj.comment[i].date + '           </div>'
+                + '        </div>'
+                + '        <div class="m_main">'
+                + obj.comment[i].main + '        </div>'
+                + '</div>'
+        arr.push(str);
+    }
+    $(".content").html(arr.join(""));
+</script>-->
+<script>
+    var product = JSON.parse(localStorage.getItem("product"));
+    if (product != null) {
+        var comment = product.comment.comment;
+
+        for (var i = 0; i < comment.length; i++) {
+            var str = '<div class="message">'
+                    + '<div class="m_title">'
+                    + '<div class="name pull-left" >'
+                    + comment[i].name + '</div>'
+                    + '<div class="date pull-right">'
+                    + comment[i].date + '</div>'
+                    + '</div>'
+                    + '<div class="m_main">'
+                    + comment[i].main + '</div>'
+                    + '</div>';
+            $(str).appendTo("#comment_list");
+        }
+    }
+</script>
+<script>
+    $(document).on("pageAnimationEnd", ".page", function () {
+        location.reload();
+    })
+</script>
+<script>
+    $.init();
+</script>
+</body>
+</html>

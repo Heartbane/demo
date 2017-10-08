@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!-- 引用SUI的CSS-->
+    <link rel="stylesheet" href="lib/sui/css/sm.min.css">
+    <link rel="stylesheet" href="lib/sui/css/sm-extend.min.css">
+    <!-- 引用项目用的字体图标库-->
+    <link rel="stylesheet" href="font/iconfont.css"/>
+    <!--引用cat的CSS-->
+    <link rel="stylesheet" href="css/main.css"/>
+</head>
+<body>
+<div class="page-group">
+    <div class="page site_page" id="site">
+        <header class="bar bar-nav">
+            <a class="icon pull-left goback"><i class="iconfont icon-fanhui"></i></a>
+
+            <h1 class="title">添加收货地址</h1>
+        </header>
+        <div class="content">
+            <div class="list-block">
+                <ul>
+                    <!-- Text inputs -->
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media"><i class="icon icon-form-name"></i></div>
+                            <div class="item-inner">
+                                <div class="item-title label">收货人姓名</div>
+                                <div class="item-input">
+                                    <input type="text" placeholder="您的姓名" id="site_name">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media"><i class="icon icon-form-email"></i></div>
+                            <div class="item-inner">
+                                <div class="item-title label">手机号</div>
+                                <div class="item-input">
+                                    <input type="text" placeholder="您的手机号" id="site_mobile">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media"><i class="icon icon-form-password"></i></div>
+                            <div class="item-inner">
+                                <div class="item-title label">邮编</div>
+                                <div class="item-input">
+                                    <input type="text" placeholder="您的的邮编" id="site_zonecode">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media"><i class="icon icon-form-password"></i></div>
+                            <div class="item-inner">
+                                <div class="item-title label">E-mail</div>
+                                <div class="item-input">
+                                    <input type="text" placeholder="您的的E-mail" id="site_email">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media"><i class="icon icon-form-password"></i></div>
+                            <div class="item-inner">
+                                <div class="item-title label">详细地址</div>
+                                <div class="item-input">
+                                    <input type="text" placeholder="您的的详细地址" id="site_address" >
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="content-block">
+                <div class="row">
+                    <div class="content-block">
+                        <div class="col-100"><a href="#" class="confirm-ok-cancel button button-big button-fill button-success" id="save">完成</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type='text/javascript' src='js/jquery-3.1.0.min.js' charset='utf-8'></script>
+<script>
+    var jq = $.noConflict();
+</script>
+<!--引入zepto核心组件-->
+<script type='text/javascript' src='lib/sui/js/zepto.min.js' charset='utf-8'></script>
+<!--引入zepto触摸事件组件-->
+<script type='text/javascript' src='lib/sui/js/touch.js' charset='utf-8'></script>
+<!--引入SUI的JS文件-->
+<script type='text/javascript' src='lib/sui/js/sm.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='lib/sui/js/sm-extend.min.js' charset='utf-8'></script>
+<!--SUI页面初始化-->
+<script type="text/javascript" src="js/main.js"></script>
+
+<script>
+    $.init();
+</script>
+<!--<script>-->
+<!--$(document).on('click', '.site_page .confirm-ok-cancel', function () {-->
+<!--$.confirm('确定保存？',-->
+<!--function () {-->
+<!--$.toast("保存成功");-->
+<!--}-->
+<!--);-->
+<!--$(".modal-button").html("取消");-->
+<!--$(".modal-button-bold").html("确定");-->
+<!--});-->
+<!--</script>-->
+</body>
+</html>

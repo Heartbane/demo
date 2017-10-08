@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!-- 引用SUI的CSS-->
+    <link rel="stylesheet" href="lib/sui/css/sm.min.css">
+    <link rel="stylesheet" href="lib/sui/css/sm-extend.min.css">
+    <!-- 引用项目用的字体图标库-->
+    <link rel="stylesheet" href="font/iconfont.css"/>
+    <!--<link rel="stylesheet" href="font/font_right/iconfont.css"/>-->
+
+    <link rel="stylesheet" href="css/main.css"/>
+    <style>
+        label.label-checkbox input[type=checkbox]:checked + .item-media i.icon-form-checkbox {
+            background-color: #329364;
+        }
+    </style>
+
+</head>
+<body>
+<div class="page-group">
+    <div class="page page-current carts">
+        <!-- 标题栏 -->
+        <header class="bar bar-nav">
+            <a class="icon pull-left back">
+                <i class="iconfont icon-fanhui" id="icon-12"></i>
+            </a>
+
+            <h1 class="title">购物车</h1>
+            <a class="icon pull-right" id="delete">
+                <i class="iconfont icon-shanchu" id="delete_pro"></i>
+            </a>
+        </header>
+
+        <div class="content">
+            <div class="c_cart">
+
+            </div>
+        </div>
+        <!--  底部导航-->
+        <nav class="bar bar-tab">
+            <div class="nav_container">
+                <label class="label-checkbox item-content" id="select_all">
+                    <input type="checkbox" name="my-radio">
+
+                    <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
+                    <span>全选</span>
+
+
+                </label>
+
+                <div class="total">
+                    <span>合计</span>
+                    <span>&yen;</span>
+                    <span id="total_price">0.0</span>
+                </div>
+                <div class="account pull-right" id="close_price">
+                    <button>去结算</button>
+                </div>
+            </div>
+
+        </nav>
+
+    </div>
+</div>
+<!--引入zepto核心组件-->
+<script type='text/javascript' src='lib/sui/js/zepto.min.js' charset='utf-8'></script>
+<!--引入zepto触摸事件组件-->
+<script type='text/javascript' src='lib/sui/js/touch.js' charset='utf-8'></script>
+<!--引入SUI的JS文件-->
+<script type='text/javascript' src='lib/sui/js/sm.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='lib/sui/js/sm-extend.min.js' charset='utf-8'></script>
+
+<!--应用公共js库-->
+<script type='text/javascript' src='js/common.js' charset='utf-8'></script>
+
+<script src="js/swipe.js"></script>
+<script>
+    //动态创建购物车里的数据
+    var user = sessionStorage.getItem("user");
+    if (!user) {
+        $.toast("您尚未登录");
+        setTimeout(function () {
+            $.router.load("login.html");
+        }, 2000)
+    }
+    var cartdata = JSON.parse(localStorage.getItem("cartdata"));
+    if (cartdata) {
+        for (var i = 0; i < cartdata.length; i++) {
+            var str = '<div class="list-block media-list list-first">'
+                    + '<ul>'
+                    + '<li>'
+                    + '<label class="label-checkbox item-content">'
+                    + '<input type="checkbox" name="my-radio">'
+                    + '<div class="item-media"><i class="icon icon-form-checkbox"></i><img src="' + cartdata[i].proImg + '" style="width: 4rem;"></div>'
+                    + '<div class="item-inner">'
+                    + '<div class="item-title-row">'
+                    + '<div class="item-title">' + cartdata[i].name + '</div>'
+                    + '</div>'
+                    + '<div class="count pull-right">'
+                    + '<span><input class="cart-num" type="number"  value="' + cartdata[i].cartNum + '"></span>'
+                    + '<span> <i class="iconfont icon-jiantouyou"></i></span>'
+                    + '</div>'
+                    + '<div class="item-subtitle">' + cartdata[i].info + '</div>'
+                    + '<div class="item-text">总价：<span>&yen;</span><span class="p-price">' + cartdata[i].price + '</span>'
+                    + '</div>'
+                    + '</div>'
+                    + '</label>'
+                    + '</li>'
+                    + '</ul>'
+                    + '</div>';
+            $(str).appendTo('.content .c_cart');
+        }
+    }
+    //商品数量选中
+    $(".cart-num").on("focus", function () {
+        this.select();
+    });
+
+    //商品数量输入完成并离开时，如果当前商品被选中则计算总价
+    $(".cart-num").on("blur", function () {
+        var num = this.value;
+        if (num > 99) {
+            num = 99;
+        } else if (num < 1 || num == "") {
+            num = 1;
+        }
+        this.value = num;
+        var totalPrice = 0;
+        $(".list-block .label-checkbox input[type=checkbox]").each(function (index, dom) {
+            if ($(dom).prop("checked")) {
+                var price = parseFloat($(dom).parents(".list-block").find(".p-price").text());
+                var num = parseFloat($(dom).parents(".list-block").find(".cart-num").val());
+                totalPrice += (price * num);
+            }
+            $("#total_price").text(totalPrice.toFixed(1));
+        });
+    });
+
+    //当前商品选中时会重新计算总价
+    $(document).on("click", ".list-block", function (e) {
+        if (!$(e.target).hasClass("cart-num")) {
+            var check = !$(this).find(".label-checkbox input[type=checkbox]").prop("checked");
+            var totalPrice = parseFloat($("#total_price").text());
+            var price = parseFloat($(this).find(".p-price").text());
+            var num = parseFloat($(this).find(".cart-num").val());
+            var sTotal = price * num;
+            if (check) {
+                totalPrice += sTotal;
+            } else {
+                totalPrice -= sTotal;
+            }
+            console.log(totalPrice);
+            $("#total_price").text(totalPrice.toFixed(1));
+        }
+    });
+
+    //全选按钮事件，将所有商品全选，并计算总价
+    $(document).on("click", "#select_all", function () {
+        var check = $(this).find("input").prop("checked");
+        $(".list-block .label-checkbox input[type=checkbox]").prop("checked", !check);
+        var totalPrice = 0;
+        $(".list-block .label-checkbox input[type=checkbox]").each(function (index, dom) {
+            if ($(dom).prop("checked")) {
+                var price = parseFloat($(dom).parents(".list-block").find(".p-price").text());
+                var num = parseFloat($(dom).parents(".list-block").find(".cart-num").val());
+                totalPrice += (price * num);
+            }
+        });
+        $("#total_price").text(totalPrice.toFixed(1));
+    });
+
+    //删除选中商品事件
+    $(document).on("click", "#delete_pro", function () {
+        var n = 0;
+        $(".list-block .label-checkbox input[type=checkbox]").each(function (index, dom) {
+            if ($(dom).prop("checked")) {
+                n++;
+            }
+        });
+        if (n > 0) {
+            $.confirm('确定删除?',
+                    function () {
+                        $(".list-block .label-checkbox input[type=checkbox]").each(function (index, dom) {
+                            if ($(dom).prop("checked")) {
+                                var pName = $(dom).parents(".list-block").find(".item-title").text();
+                                for (var i in cartdata) {
+                                    if (pName == cartdata[i].name) {
+                                        cartdata.splice(i, 1);
+                                    }
+                                }
+
+                            }
+                        });
+                        localStorage.setItem("cartdata", JSON.stringify(cartdata));
+                        $.toast("删除成功");
+                        setTimeout(function () {
+                            location.reload();
+                        }, 2000);
+                    },
+                    function () {
+                    }
+            );
+            $(".modal-button").text("取消");
+            $(".modal-button-bold").text("确定");
+        } else {
+            $.toast("未选择需要删除的商品");
+        }
+    });
+
+    //去结算按钮事件
+    $(document).on("click", "#close_price", function () {
+        var n = 0;
+        $(".list-block .label-checkbox input[type=checkbox]").each(function (index, dom) {
+            if ($(dom).prop("checked")) {
+                n++;
+            }
+        });
+        if (n > 0) {
+            var totalPrice = parseFloat($("#total_price").text());
+            localStorage.setItem("totalPrice", totalPrice);
+            $.router.load("indent.html");
+        }
+        else {
+            $.toast("未选择任何商品");
+        }
+    })
+</script>
+<!--SUI页面初始化-->
+<script>
+    $.init();
+    $.config = {router: false};
+    $(document).on("pageAnimationEnd", ".page", function () {
+        location.reload();
+    })
+</script>
+</body>
+</html>
